@@ -1,0 +1,153 @@
+/* Styles for Krishnasis Tripathy — Portfolio */
+:root{
+  --bg-1:#071022;--bg-2:#0f1830;--card:rgba(255,255,255,0.03);--muted: #9fb0c8;--text:#eaf2ff;--accent:#7c5cff;--accent-2:#00e0d6;--glass:rgba(255,255,255,0.03);--radius:14px;--nav-h:72px
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:linear-gradient(135deg,var(--bg-1),var(--bg-2));-webkit-font-smoothing:antialiased}
+.container{max-width:1100px;margin:0 auto;padding:0 1rem}
+
+/* animated background blobs */
+body::before,body::after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none}
+body::before{background:radial-gradient(600px 300px at 10% 20%, rgba(124,92,255,0.12), transparent 10%), radial-gradient(400px 260px at 80% 80%, rgba(0,224,214,0.06), transparent 10%);animation:floatBG 14s linear infinite alternate}
+body::after{background:linear-gradient(90deg, rgba(124,92,255,0.03), rgba(0,224,214,0.02));filter:blur(40px);mix-blend-mode:screen}
+@keyframes floatBG{from{transform:translateY(0) rotate(0deg)}to{transform:translateY(-18px) rotate(6deg)}}
+
+/* Header */
+.site-header{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;backdrop-filter:blur(8px);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-bottom:1px solid rgba(255,255,255,0.03);z-index:60}
+.header-inner{display:flex;align-items:center;justify-content:space-between;width:100%}
+.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none;color:var(--text)}
+.brand-photo{width:52px;height:52px;border-radius:50%;border:2px solid rgba(255,255,255,0.06);box-shadow:0 8px 30px rgba(3,6,23,0.6)}
+.brand-text{display:flex;flex-direction:column}
+.name{font-weight:700}
+.role{font-size:12px;color:var(--muted)}
+
+.nav{display:flex;align-items:center}
+.nav-toggle{display:none;background:transparent;border:0;color:var(--text);font-size:20px}
+.nav-links{display:flex;gap:1rem;align-items:center;list-style:none;margin:0;padding:0}
+.nav-links a{color:var(--muted);text-decoration:none;padding:.45rem .6rem;border-radius:10px;font-weight:600}
+.nav-links a:hover{color:var(--text);background:rgba(255,255,255,0.02)}
+.cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#031026;padding:.45rem .75rem;border-radius:10px}
+
+/* Hero */
+.hero{padding:calc(var(--nav-h) + 2rem) 0 3rem}
+.hero-inner{display:grid;grid-template-columns:1fr 360px;gap:2rem;align-items:start}
+.photo-wrap{position:relative;width:140px;height:140px}
+.hero-photo{width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,0.06);box-shadow:0 18px 40px rgba(3,6,23,0.6);transform:translateY(0);transition:transform .5s cubic-bezier(.2,.9,.2,1)}
+.photo-glow{position:absolute;inset:-8px;border-radius:inherit;background:linear-gradient(90deg,var(--accent),var(--accent-2));filter:blur(22px);opacity:.35;z-index:-1;transform:scale(.95)}
+.photo-wrap:hover .hero-photo{transform:translateY(-6px) scale(1.02)}
+
+.headline{font-size:clamp(1.8rem,3.5vw,2.6rem);margin:0}
+.headline span{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.subhead{color:var(--muted);margin-top:.6rem}
+.hero-cta{margin-top:1.1rem;display:flex;gap:.8rem}
+.btn{padding:.6rem .9rem;border-radius:10px;text-decoration:none;font-weight:700}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#031026}
+.btn.ghost{border:1px solid rgba(255,255,255,0.05);color:var(--text);background:transparent}
+.quick-links{margin-top:1rem;display:flex;gap:1rem}
+.quick-links a{color:var(--muted);font-size:.95rem}
+
+/* Cards & stats */
+.card{background:var(--card);border-radius:var(--radius);padding:1rem;border:1px solid rgba(255,255,255,0.04)}
+.stats{display:flex;flex-direction:column;gap:.8rem}
+.stat{display:flex;justify-content:space-between;align-items:center}
+.stat .num{font-weight:700;font-size:1.4rem}
+.stat .label{color:var(--muted);font-size:.9rem}
+.skills-preview .skill-row{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem}
+.bar{flex:1;height:10px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transform:translateX(-100%)}
+
+.section{padding:2.2rem 0}
+.section-title{font-size:1.6rem;margin-bottom:1rem;font-weight:700}
+.glass{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008));padding:1rem;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.job ul{margin-top:.5rem;color:var(--muted)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.project .project-hero{height:110px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700}
+.project-links a{color:var(--muted);text-decoration:none}
+.small{font-size:0.9rem}
+.muted{color:var(--muted)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.contact-grid input,.contact-grid textarea{width:100%;padding:.7rem;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+
+/* footer */
+.site-footer{padding:2rem 0;text-align:center;color:var(--muted)}
+
+/* reveal animation */
+.reveal{opacity:0;transform:translateY(12px);transition:all .6s cubic-bezier(.2,.9,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* responsive */
+@media (max-width:980px){.hero-inner{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .nav-toggle{display:block}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media (max-width:600px){.brand-text{display:none}.hero-photo{width:110px;height:110px}}
+
+/* small helpers */
+.center{text-align:center}
+
+/* accessibility focus */
+a:focus,input:focus,button:focus{outline:2px solid rgba(124,92,255,0.35);outline-offset:2px}
+
+/* ---- THEMES ---- */
+
+/* Pink Theme */
+[data-theme="pink"] {
+  --bg-1: #ffe4f2;
+  --bg-2: #ffd6e0;
+  --card: rgba(255,255,255,0.6);
+  --muted: #7a5573;
+  --text: #2a1a24;
+  --accent: #ff6fa8;
+  --accent-2: #ff9ec4;
+}
+
+/* Green Theme */
+[data-theme="green"] {
+  --bg-1: #0d1f17;
+  --bg-2: #123524;
+  --card: rgba(255,255,255,0.06);
+  --muted: #a9d9b0;
+  --text: #e8ffe8;
+  --accent: #00c853;
+  --accent-2: #64dd17;
+}
+
+/* Yellow Theme */
+[data-theme="yellow"] {
+  --bg-1: #2a2100;
+  --bg-2: #4a3900;
+  --card: rgba(255,255,255,0.08);
+  --muted: #f5e27a;
+  --text: #fffbe6;
+  --accent: #ffd600;
+  --accent-2: #ffab00;
+}
+
+/* Cyberpunk Theme */
+[data-theme="cyberpunk"] {
+  --bg-1: #0a001a;
+  --bg-2: #1a0033;
+  --card: rgba(255,255,255,0.05);
+  --muted: #ff00ff;
+  --text: #e0f7ff;
+  --accent: #ff00ff;
+  --accent-2: #00e5ff;
+}
+
+/* Theme Toggle Button */
+.theme-btn {
+  margin-left: 1rem;
+  padding: .4rem .8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background .3s, color .3s;
+}
+.theme-btn:hover {
+  background: rgba(255,255,255,0.08);
+}
